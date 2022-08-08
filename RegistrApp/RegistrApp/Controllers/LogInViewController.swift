@@ -44,6 +44,7 @@ class LogInViewController: UIViewController {
     
     @IBAction func continueBtn(_ sender: Any) {
         
+        performSegue(withIdentifier: "GoToVerificCod", sender: nil)
     }
     
     

@@ -9,6 +9,13 @@ import UIKit
 
 class SignUp: UIViewController {
 
+    
+    @IBOutlet weak var errorEmailOrPass: UILabel!
+    
+    @IBAction func GoToRegistr() {
+        performSegue(withIdentifier: "GoToRegistr", sender: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
