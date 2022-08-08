@@ -42,9 +42,6 @@
                                         <rect key="frame" x="0.0" y="54" width="364" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="name"/>
-                                        <connections>
-                                            <action selector="nameUser:" destination="Y6W-OH-hqX" eventType="editingDidEnd" id="hvI-C6-oGf"/>
-                                        </connections>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PyG-3K-pHU">
                                         <rect key="frame" x="0.0" y="108" width="364" height="34"/>
@@ -121,6 +118,9 @@
                         <outlet property="ErrorEmail" destination="8Ax-hw-hHv" id="WVT-RC-4sg"/>
                         <outlet property="ErrorPassword" destination="GGX-us-2Wc" id="qKs-El-AKT"/>
                         <outlet property="continueBtn" destination="iR9-nV-6NY" id="0M0-GX-wS3"/>
+                        <outlet property="emailUser" destination="F85-wS-I5z" id="eK9-3n-GEh"/>
+                        <outlet property="nameUser" destination="ANg-Xq-mfS" id="pBF-t7-MtI"/>
+                        <outlet property="passUser" destination="CWR-zh-sIZ" id="Y5q-8X-IyP"/>
                         <segue destination="kvX-Xu-cgQ" kind="show" identifier="GoToVerificCod" id="88e-TN-IE3"/>
                     </connections>
                 </viewController>

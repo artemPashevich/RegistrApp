@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:537358648530:ios:23f08ab503ecec69ed990b</string>
+	<string>1:537358648530:ios:9259c0ed34e143bbed990b</string>
 	<key>DATABASE_URL</key>
 	<string>https://registr-c8012-default-rtdb.firebaseio.com</string>
 </dict>

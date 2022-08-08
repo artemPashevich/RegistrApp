@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import Firebase
 
 class LogInViewController: UIViewController {
 
     
+    @IBOutlet weak var nameUser: UITextField!
+    @IBOutlet weak var passUser: UITextField!
+    @IBOutlet weak var emailUser: UITextField!
     @IBOutlet weak var continueBtn: UIButton!
     @IBOutlet weak var ErrorPassword: UILabel!
     
@@ -18,7 +22,7 @@ class LogInViewController: UIViewController {
     private var isValidEmail = false { didSet {updateContinueBtn()}}
     private var passwordStrength: PasswordStrength = .veryWeak { didSet {updateContinueBtn()}}
     
-    @IBAction func emailUser(_ sender: UITextField) {
+    @IBAction func emailUser(_ sender: UITextField)  {
         if let email = sender.text, !email.isEmpty,
             VerificationService.isValidEmail(email: email) {
             isValidEmail = true
@@ -29,8 +33,24 @@ class LogInViewController: UIViewController {
     }
     
     
-    @IBAction func nameUser(_ sender: Any) {
-        
+    func addNewUserToBase () {
+        Auth.auth().createUser(withEmail: emailUser.text!, password: passUser.text!) { result, error in
+            if error == nil {
+                if let result = result {
+                let ref = Database.database().reference().child("Users")
+                    ref.child(result.user.uid).updateChildValues(["Name": self.nameUser.text!, "Email": self.emailUser.text!])
+                }
+                else {
+                    let alertVC = UIAlertController(
+                                title: "Error",
+                                message: "A user with such an email is already registered",
+                                preferredStyle: .alert)
+                            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                            alertVC.addAction(action)
+                            self.present(alertVC, animated: true, completion: nil)
+                }
+            }
+        }
     }
     
     
@@ -45,6 +65,7 @@ class LogInViewController: UIViewController {
     @IBAction func continueBtn(_ sender: Any) {
         
         performSegue(withIdentifier: "GoToVerificCod", sender: nil)
+        addNewUserToBase()
     }
     
     
