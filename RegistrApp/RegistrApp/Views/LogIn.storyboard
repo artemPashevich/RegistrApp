@@ -139,9 +139,12 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kpy-BW-hSC">
                                 <rect key="frame" x="151" y="313" width="112" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="SecureCode:" destination="kvX-Xu-cgQ" eventType="editingChanged" id="Z4b-KD-bS4"/>
+                                </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the code from your email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Q0-S0-2wL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the code from your email" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Q0-S0-2wL">
                                 <rect key="frame" x="56" y="224" width="302" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
@@ -162,6 +165,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PRQ-T8-vJ6"/>
+                    <connections>
+                        <outlet property="labelText" destination="1Q0-S0-2wL" id="Fat-SJ-LGm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G0R-Jd-WUC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -182,6 +188,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" textContentType="email"/>
+                                        <connections>
+                                            <action selector="emailAction:" destination="YI6-8U-H7G" eventType="editingChanged" id="GSz-XU-fDK"/>
+                                        </connections>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="JFM-Vh-e1G">
                                         <rect key="frame" x="0.0" y="59" width="364" height="34"/>
@@ -190,6 +199,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="364" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
+                                                <connections>
+                                                    <action selector="passAction:" destination="YI6-8U-H7G" eventType="editingChanged" id="0eq-Bo-TQV"/>
+                                                </connections>
                                             </textField>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login or password entered incorrectly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZP-nx-gg4">
                                                 <rect key="frame" x="0.0" y="0.0" width="364" height="0.0"/>
@@ -208,6 +220,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="244" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Log in"/>
+                                        <connections>
+                                            <action selector="logInToSystem" destination="YI6-8U-H7G" eventType="touchUpInside" id="o0M-Ka-hAi"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JJ-gO-8aw">
                                         <rect key="frame" x="0.0" y="60" width="244" height="31"/>
@@ -215,6 +230,7 @@
                                         <buttonConfiguration key="configuration" style="filled" title="Sign up"/>
                                         <connections>
                                             <action selector="GoToRegistr" destination="YI6-8U-H7G" eventType="touchUpInside" id="Gr0-Pq-1C0"/>
+                                            <segue destination="Y6W-OH-hqX" kind="show" id="4qB-Wv-Pfa"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -235,8 +251,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="8w4-Hn-7mw"/>
                     <connections>
+                        <outlet property="emailUser" destination="csL-NG-3An" id="5zx-IG-Ree"/>
                         <outlet property="errorEmailOrPass" destination="4ZP-nx-gg4" id="ihh-H5-9Li"/>
-                        <segue destination="Y6W-OH-hqX" kind="show" identifier="GoToRegistr" id="k0b-Mh-sim"/>
+                        <outlet property="logInOutlet" destination="dYQ-Oo-Aes" id="eno-iJ-3rL"/>
+                        <outlet property="passUser" destination="8m2-GF-1Ic" id="OGa-Oh-fMU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hbo-jJ-MXZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

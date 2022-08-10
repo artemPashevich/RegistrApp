@@ -8,11 +8,30 @@
 import UIKit
 
 class EmailCodeVC: UIViewController {
-
+    
+    @IBOutlet weak var labelText: UILabel!
+    
+    let secretCode = Int.random(in: 100000...999999)
+    
+    
+    
+    
+    @IBAction func SecureCode(_ sender: UITextField) {
+        if let code = sender.text,
+              let codeInt = Int(code),
+           secretCode == codeInt {
+            // go to next screen
+        } else {
+                  // error lbl
+              }
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        labelText.text = "Enter the code from your email \(secretCode)"
+        
     }
     
 

@@ -16,7 +16,6 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var emailUser: UITextField!
     @IBOutlet weak var continueBtn: UIButton!
     @IBOutlet weak var ErrorPassword: UILabel!
-    
     @IBOutlet weak var ErrorEmail: UILabel!
     
     private var isValidEmail = false { didSet {updateContinueBtn()}}
@@ -41,13 +40,7 @@ class LogInViewController: UIViewController {
                     ref.child(result.user.uid).updateChildValues(["Name": self.nameUser.text!, "Email": self.emailUser.text!])
                 }
                 else {
-                    let alertVC = UIAlertController(
-                                title: "Error",
-                                message: "A user with such an email is already registered",
-                                preferredStyle: .alert)
-                            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-                            alertVC.addAction(action)
-                            self.present(alertVC, animated: true, completion: nil)
+                    self.showAlert()
                 }
             }
         }
@@ -63,25 +56,43 @@ class LogInViewController: UIViewController {
     
     
     @IBAction func continueBtn(_ sender: Any) {
-        
-        performSegue(withIdentifier: "GoToVerificCod", sender: nil)
-        addNewUserToBase()
+        Auth.auth().createUser(withEmail: emailUser.text!, password: passUser.text!) { result, error in
+            if error == nil {
+                if let result = result {
+                let ref = Database.database().reference().child("Users")
+                    ref.child(result.user.uid).updateChildValues(["Name": self.nameUser.text!, "Email": self.emailUser.text!])
+                    self.performSegue(withIdentifier: "GoToVerificCod", sender: nil)
+                } else {
+                    self.showAlert()
+                }
+            }
+        }
+            
     }
     
     
     @IBAction func switchLogIn(_ sender: Any) {
-        
+        dismiss(animated: true)
     }
     
     private func updateContinueBtn () {
         continueBtn.isEnabled = isValidEmail && passwordStrength != .veryWeak
     }
     
+    func showAlert() {
+        let alertVC = UIAlertController(
+                                        title: "Error",
+                                       message: "A user with such an email is already registered",
+                                       preferredStyle: .alert)
+                                   let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                                   alertVC.addAction(action)
+                                   self.present(alertVC, animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         hideKeyboardWhenTappedAround()
         super.viewDidLoad()
-
+        continueBtn.isEnabled = false
     }
     
 
