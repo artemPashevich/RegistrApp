@@ -61,7 +61,7 @@ class LogInViewController: UIViewController {
                 if let result = result {
                 let ref = Database.database().reference().child("Users")
                     ref.child(result.user.uid).updateChildValues(["Name": self.nameUser.text!, "Email": self.emailUser.text!])
-                    self.performSegue(withIdentifier: "GoToVerificCod", sender: nil)
+                    self.storyboard?.instantiateViewController(withIdentifier: "EmailCodeVC")
                 } else {
                     self.showAlert()
                 }

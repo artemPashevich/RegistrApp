@@ -80,6 +80,7 @@
                                         <buttonConfiguration key="configuration" style="filled" title="Continue"/>
                                         <connections>
                                             <action selector="continueBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="8Al-fx-Xjb"/>
+                                            <segue destination="kvX-Xu-cgQ" kind="show" id="gUB-8N-d8Z"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBR-ne-hoU">
@@ -121,7 +122,6 @@
                         <outlet property="emailUser" destination="F85-wS-I5z" id="eK9-3n-GEh"/>
                         <outlet property="nameUser" destination="ANg-Xq-mfS" id="pBF-t7-MtI"/>
                         <outlet property="passUser" destination="CWR-zh-sIZ" id="Y5q-8X-IyP"/>
-                        <segue destination="kvX-Xu-cgQ" kind="show" identifier="GoToVerificCod" id="88e-TN-IE3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -131,7 +131,7 @@
         <!--Email CodeVC-->
         <scene sceneID="seF-HY-m7v">
             <objects>
-                <viewController id="kvX-Xu-cgQ" customClass="EmailCodeVC" customModule="RegistrApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EmailCodeVC" id="kvX-Xu-cgQ" customClass="EmailCodeVC" customModule="RegistrApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cZb-nE-Uqg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -150,28 +150,38 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The code is entered incorrectly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlO-Qv-SKe">
+                                <rect key="frame" x="89" y="371" width="237" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9xI-OJ-STQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="9xI-OJ-STQ" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Kpy-BW-hSC" secondAttribute="trailing" constant="151" id="1AA-26-6sb"/>
                             <constraint firstItem="1Q0-S0-2wL" firstAttribute="top" secondItem="9xI-OJ-STQ" secondAttribute="top" constant="180" id="6UD-6B-qvH"/>
+                            <constraint firstItem="zlO-Qv-SKe" firstAttribute="top" secondItem="Kpy-BW-hSC" secondAttribute="bottom" constant="24" id="98x-M8-bcr"/>
                             <constraint firstItem="1Q0-S0-2wL" firstAttribute="leading" relation="lessThanOrEqual" secondItem="9xI-OJ-STQ" secondAttribute="leading" constant="56" id="Ci4-Xt-ibu"/>
                             <constraint firstItem="1Q0-S0-2wL" firstAttribute="centerX" secondItem="9xI-OJ-STQ" secondAttribute="centerX" id="Ck1-MM-uPm"/>
                             <constraint firstItem="Kpy-BW-hSC" firstAttribute="leading" relation="lessThanOrEqual" secondItem="9xI-OJ-STQ" secondAttribute="leading" constant="152" id="aCp-ch-lC1"/>
                             <constraint firstItem="9xI-OJ-STQ" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="1Q0-S0-2wL" secondAttribute="trailing" constant="56" id="cDU-q2-WcW"/>
+                            <constraint firstItem="zlO-Qv-SKe" firstAttribute="leading" relation="lessThanOrEqual" secondItem="9xI-OJ-STQ" secondAttribute="leading" constant="89" id="hpU-Au-3mI"/>
                             <constraint firstItem="Kpy-BW-hSC" firstAttribute="top" secondItem="1Q0-S0-2wL" secondAttribute="bottom" constant="61.5" id="lc6-lP-exE"/>
+                            <constraint firstItem="9xI-OJ-STQ" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="zlO-Qv-SKe" secondAttribute="trailing" constant="88" id="vM9-im-mtW"/>
                             <constraint firstItem="Kpy-BW-hSC" firstAttribute="centerX" secondItem="9xI-OJ-STQ" secondAttribute="centerX" id="xKL-RX-djm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PRQ-T8-vJ6"/>
                     <connections>
+                        <outlet property="errorLbl" destination="zlO-Qv-SKe" id="poW-R3-PfS"/>
                         <outlet property="labelText" destination="1Q0-S0-2wL" id="Fat-SJ-LGm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G0R-Jd-WUC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="953.62318840579712" y="92.410714285714278"/>
+            <point key="canvasLocation" x="945" y="67"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="ah0-8v-N85">

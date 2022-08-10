@@ -10,27 +10,34 @@ import UIKit
 class EmailCodeVC: UIViewController {
     
     @IBOutlet weak var labelText: UILabel!
+    @IBOutlet weak var errorLbl: UILabel!
     
     let secretCode = Int.random(in: 100000...999999)
     
     
-    
+    func tap() {
+           let storyBoard: UIStoryboard = UIStoryboard(name: "menuApp", bundle: nil)
+           let newViewController = storyBoard.instantiateViewController(withIdentifier: "menuVC") as! menuVC
+           newViewController.modalPresentationStyle = .fullScreen
+           present(newViewController, animated: true, completion: nil)
+       }
     
     @IBAction func SecureCode(_ sender: UITextField) {
         if let code = sender.text,
               let codeInt = Int(code),
            secretCode == codeInt {
-            // go to next screen
+            tap()
         } else {
-                  // error lbl
+            errorLbl.isHidden = false
               }
         
-    }
+ }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         labelText.text = "Enter the code from your email \(secretCode)"
+        hideKeyboardWhenTappedAround()
         
     }
     

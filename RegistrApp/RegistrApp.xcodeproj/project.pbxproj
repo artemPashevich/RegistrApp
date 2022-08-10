@@ -12,11 +12,8 @@
 		A528A48C28A0DDB700763E91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A528A48B28A0DDB700763E91 /* Assets.xcassets */; };
 		A528A48F28A0DDB700763E91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A528A48D28A0DDB700763E91 /* LaunchScreen.storyboard */; };
 		A528A49728A0DFA400763E91 /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A528A49628A0DFA400763E91 /* LogIn.storyboard */; };
-		A528A49928A0DFC900763E91 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528A49828A0DFC900763E91 /* LogInViewController.swift */; };
 		A528A49B28A0EF0D00763E91 /* Servies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528A49A28A0EF0D00763E91 /* Servies.swift */; };
 		A528A4A328A0F9DA00763E91 /* ExtVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528A4A228A0F9DA00763E91 /* ExtVC.swift */; };
-		A528A4A528A120B500763E91 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528A4A428A120B500763E91 /* SignUp.swift */; };
-		A528A4A728A1308B00763E91 /* EmailCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528A4A628A1308B00763E91 /* EmailCodeVC.swift */; };
 		A528A4AC28A1369C00763E91 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = A528A4AB28A1369C00763E91 /* FirebaseAnalytics */; };
 		A528A4AE28A1369C00763E91 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = A528A4AD28A1369C00763E91 /* FirebaseAnalyticsOnDeviceConversion */; };
 		A528A4B028A1369C00763E91 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A528A4AF28A1369C00763E91 /* FirebaseAnalyticsSwift */; };
@@ -45,6 +42,11 @@
 		A528A4DE28A1369D00763E91 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A528A4DD28A1369D00763E91 /* FirebaseStorage */; };
 		A528A4E028A1369D00763E91 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = A528A4DF28A1369D00763E91 /* FirebaseStorageCombine-Community */; };
 		A528A4E828A29FD700763E91 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A528A4E728A29FD600763E91 /* GoogleService-Info.plist */; };
+		A5FF520528A3D116005786EE /* EmailCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF520428A3D116005786EE /* EmailCodeVC.swift */; };
+		A5FF520728A3D122005786EE /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF520628A3D122005786EE /* SignUp.swift */; };
+		A5FF520928A3D12E005786EE /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF520828A3D12E005786EE /* LogInViewController.swift */; };
+		A5FF520B28A3D953005786EE /* menuApp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5FF520A28A3D953005786EE /* menuApp.storyboard */; };
+		A5FF520D28A3D9F2005786EE /* menuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF520C28A3D9F2005786EE /* menuVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,12 +57,14 @@
 		A528A48E28A0DDB700763E91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A528A49028A0DDB700763E91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A528A49628A0DFA400763E91 /* LogIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
-		A528A49828A0DFC900763E91 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		A528A49A28A0EF0D00763E91 /* Servies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Servies.swift; sourceTree = "<group>"; };
 		A528A4A228A0F9DA00763E91 /* ExtVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtVC.swift; sourceTree = "<group>"; };
-		A528A4A428A120B500763E91 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
-		A528A4A628A1308B00763E91 /* EmailCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailCodeVC.swift; sourceTree = "<group>"; };
 		A528A4E728A29FD600763E91 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A5FF520428A3D116005786EE /* EmailCodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailCodeVC.swift; sourceTree = "<group>"; };
+		A5FF520628A3D122005786EE /* SignUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		A5FF520828A3D12E005786EE /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		A5FF520A28A3D953005786EE /* menuApp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = menuApp.storyboard; sourceTree = "<group>"; };
+		A5FF520C28A3D9F2005786EE /* menuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,8 +126,8 @@
 			children = (
 				A528A49D28A0F8C700763E91 /* Deledate */,
 				A528A49C28A0F88B00763E91 /* Servies */,
+				A5FF520328A3D0E3005786EE /* Controllers */,
 				A528A4A128A0F98900763E91 /* Extentions */,
-				A528A49F28A0F94900763E91 /* Controllers */,
 				A528A49E28A0F92100763E91 /* Views */,
 				A528A48B28A0DDB700763E91 /* Assets.xcassets */,
 				A528A4E728A29FD600763E91 /* GoogleService-Info.plist */,
@@ -154,18 +158,9 @@
 			children = (
 				A528A49628A0DFA400763E91 /* LogIn.storyboard */,
 				A528A48D28A0DDB700763E91 /* LaunchScreen.storyboard */,
+				A5FF520A28A3D953005786EE /* menuApp.storyboard */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		A528A49F28A0F94900763E91 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				A528A49828A0DFC900763E91 /* LogInViewController.swift */,
-				A528A4A428A120B500763E91 /* SignUp.swift */,
-				A528A4A628A1308B00763E91 /* EmailCodeVC.swift */,
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		A528A4A128A0F98900763E91 /* Extentions */ = {
@@ -174,6 +169,17 @@
 				A528A4A228A0F9DA00763E91 /* ExtVC.swift */,
 			);
 			path = Extentions;
+			sourceTree = "<group>";
+		};
+		A5FF520328A3D0E3005786EE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A5FF520828A3D12E005786EE /* LogInViewController.swift */,
+				A5FF520628A3D122005786EE /* SignUp.swift */,
+				A5FF520428A3D116005786EE /* EmailCodeVC.swift */,
+				A5FF520C28A3D9F2005786EE /* menuVC.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A528A49728A0DFA400763E91 /* LogIn.storyboard in Resources */,
+				A5FF520B28A3D953005786EE /* menuApp.storyboard in Resources */,
 				A528A48F28A0DDB700763E91 /* LaunchScreen.storyboard in Resources */,
 				A528A4E828A29FD700763E91 /* GoogleService-Info.plist in Resources */,
 				A528A48C28A0DDB700763E91 /* Assets.xcassets in Resources */,
@@ -280,12 +287,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A528A4A728A1308B00763E91 /* EmailCodeVC.swift in Sources */,
-				A528A49928A0DFC900763E91 /* LogInViewController.swift in Sources */,
-				A528A4A528A120B500763E91 /* SignUp.swift in Sources */,
+				A5FF520528A3D116005786EE /* EmailCodeVC.swift in Sources */,
 				A528A49B28A0EF0D00763E91 /* Servies.swift in Sources */,
 				A528A4A328A0F9DA00763E91 /* ExtVC.swift in Sources */,
 				A528A48328A0DDB400763E91 /* AppDelegate.swift in Sources */,
+				A5FF520728A3D122005786EE /* SignUp.swift in Sources */,
+				A5FF520D28A3D9F2005786EE /* menuVC.swift in Sources */,
+				A5FF520928A3D12E005786EE /* LogInViewController.swift in Sources */,
 				A528A48528A0DDB400763E91 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
