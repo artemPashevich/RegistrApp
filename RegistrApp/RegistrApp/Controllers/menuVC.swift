@@ -12,6 +12,26 @@ class menuVC: UIViewController {
     
     
     
+    @IBAction func pushEditUser() {
+        transition()
+    }
+    
+    func transition() {
+        performSegue(withIdentifier: "EditUserData", sender: nil)
+    }
+     
+    
+    @IBAction func exitToRegistr(_ sender: Any) {
+        tap()
+    }
+    
+    func tap() {
+           let storyBoard: UIStoryboard = UIStoryboard(name: "LogIn", bundle: nil)
+           let newViewController = storyBoard.instantiateViewController(withIdentifier: "SignUp") as! SignUp
+           newViewController.modalPresentationStyle = .fullScreen
+           present(newViewController, animated: true, completion: nil)
+       }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

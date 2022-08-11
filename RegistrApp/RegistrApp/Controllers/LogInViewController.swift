@@ -32,19 +32,6 @@ class LogInViewController: UIViewController {
     }
     
     
-    func addNewUserToBase () {
-        Auth.auth().createUser(withEmail: emailUser.text!, password: passUser.text!) { result, error in
-            if error == nil {
-                if let result = result {
-                let ref = Database.database().reference().child("Users")
-                    ref.child(result.user.uid).updateChildValues(["Name": self.nameUser.text!, "Email": self.emailUser.text!])
-                }
-                else {
-                    self.showAlert()
-                }
-            }
-        }
-    }
     
     
     @IBAction func passwordUser(_ sender: UITextField) {
@@ -61,13 +48,20 @@ class LogInViewController: UIViewController {
                 if let result = result {
                 let ref = Database.database().reference().child("Users")
                     ref.child(result.user.uid).updateChildValues(["Name": self.nameUser.text!, "Email": self.emailUser.text!])
-                    self.storyboard?.instantiateViewController(withIdentifier: "EmailCodeVC")
+                    self.goToSecretCode()
                 } else {
                     self.showAlert()
                 }
             }
         }
             
+    }
+    
+    func goToSecretCode() {
+        if let newViewController = storyboard?.instantiateViewController(withIdentifier: "EmailCodeVC") as? EmailCodeVC {
+            newViewController.modalPresentationStyle = .overCurrentContext
+            present(newViewController, animated: true, completion: nil)
+        }
     }
     
     

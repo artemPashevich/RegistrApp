@@ -16,11 +16,11 @@ class EmailCodeVC: UIViewController {
     
     
     func tap() {
-           let storyBoard: UIStoryboard = UIStoryboard(name: "menuApp", bundle: nil)
-           let newViewController = storyBoard.instantiateViewController(withIdentifier: "menuVC") as! menuVC
-           newViewController.modalPresentationStyle = .fullScreen
-           present(newViewController, animated: true, completion: nil)
-       }
+        if let newViewController = storyboard?.instantiateViewController(withIdentifier: "menuVC") as? menuVC {
+            newViewController.modalPresentationStyle = .overCurrentContext
+            present(newViewController, animated: false, completion: nil)
+        }
+    }
     
     @IBAction func SecureCode(_ sender: UITextField) {
         if let code = sender.text,

@@ -45,24 +45,30 @@ class SignUp: UIViewController {
         }
     }
     
+    
      func tap() {
-            let storyBoard: UIStoryboard = UIStoryboard(name: "menuApp", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "menuVC") as! menuVC
-            newViewController.modalPresentationStyle = .fullScreen
-            present(newViewController, animated: true, completion: nil)
-        }
+         if let newViewController = storyboard?.instantiateViewController(withIdentifier: "menuVC") as? menuVC {
+             newViewController.modalPresentationStyle = .overCurrentContext
+             present(newViewController, animated: false, completion: nil)
+         }
+     }
     
     @IBAction func logInToSystem() {
         Auth.auth().signIn(withEmail: emailUser.text!, password: passUser.text!) { (result, error) in
             if error != nil {
                 self.errorEmailOrPass.isHidden = false
             } else {
-                self.tap()
                 print("go new VC")
+                self.tap()
                 }
             }
     }
     
+//    func checkStatusUser () {
+//        Auth.auth().addStateDidChangeListener { (auth, user) in
+//
+//        }
+//    }
     
     private func updateLogInBtn () {
         logInOutlet.isEnabled = isValidEmail && isCheckPass
@@ -72,6 +78,7 @@ class SignUp: UIViewController {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
         updateLogInBtn ()
+        //checkStatusUser()
     }
     
 
