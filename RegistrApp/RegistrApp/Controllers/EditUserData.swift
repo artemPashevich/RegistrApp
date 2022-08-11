@@ -29,9 +29,8 @@ class EditUserData: UIViewController {
         let userEmail = Auth.auth().currentUser?.email
         let currentUser = Auth.auth().currentUser
         
-        if changeUserName.text != nil && changeUserEmail.text != nil {
-            db.collection("Users").document("\(String(describing: userID))").updateData([//"Name": changeUserName.text,
-                                    "Email": changeUserEmail.text!])
+        if changeUserEmail.text != nil {
+            db.collection("Users").document("\(String(describing: userID))").updateData(["Email": changeUserEmail.text!])
             if changeUserEmail.text != userEmail {
                 currentUser?.updateEmail(to: changeUserEmail.text!) { error in
                     if error != nil {
@@ -44,10 +43,27 @@ class EditUserData: UIViewController {
         }
     }
     
-    func userName() {
-        
+    func getUserName() {
+        let uid = Auth.auth().currentUser?.uid
+        Database.database().reference().child("Users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+           
+          if let dictionary = snapshot.value as? [String: AnyObject] {
+              self.changeUserName.text = dictionary["Name"] as? String
+             
+          }
+           
+        })
     }
     
+    func userNameEdit () {
+        if changeUserName.text != nil {
+        let db = Firestore.firestore()
+        let userID = Auth.auth().currentUser?.uid
+        if changeUserName.text != nil {
+            db.collection("Users").document("\(String(describing: userID))").updateData(["Name": changeUserName.text!])
+        }
+      }
+    }
     
     func userPassEdit() {
         let currentUser = Auth.auth().currentUser
@@ -88,12 +104,14 @@ class EditUserData: UIViewController {
     @IBAction func saveData() {
         userEmailOrNameEdit()
         userPassEdit()
+        userNameEdit()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         swithEnable(swithEdit!)
        fillingInText()
+        getUserName()
     }
     
     @IBAction func swithEnable(_ sender: Any) {
